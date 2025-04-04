@@ -1,4 +1,4 @@
-Absolutely! Let's break down **`useRef()`** in the same fun and simple way 😊
+Let's break down **`useRef()`** in the fun and simple way 😊
 
 ---
 
@@ -106,5 +106,3 @@ export default Counter;
 - 🔍 Very useful for **focusing input, timers, scroll, storing previous values**
 
 ---
-
-Would you like an example of `useRef()` to store **previous state or props** too?
