@@ -150,8 +150,6 @@ Here's a **visual flowchart** that explains the **Redux Toolkit cycle** in a sim
 
 📊 **Redux Toolkit Data Flow Chart**
 
-![Redux Toolkit Flow](sandbox:/mnt/data/A_flowchart_in_the_image_illustrates_the_Redux_Too.png)
-
 ![alt text](image.png)
 
 ---
