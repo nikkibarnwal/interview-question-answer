@@ -1,5 +1,7 @@
 ### **React Functional Components में Lifecycle Methods (Easy Trick to Remember) 🚀**  
 
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
 पहले **class-based components** में lifecycle methods होते थे, जैसे:  
 - `componentDidMount()`  
 - `componentDidUpdate()`  
