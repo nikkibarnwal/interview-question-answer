@@ -172,5 +172,3 @@ Here's a **visual flowchart** that explains the **Redux Toolkit cycle** in a sim
    👉 React components use `useSelector()` to read updated data
 
 ---
-
-Let me know if you want a similar chart for **async thunk lifecycle**, **middleware flow**, or **Redux vs Context API** 🔄⚛️
