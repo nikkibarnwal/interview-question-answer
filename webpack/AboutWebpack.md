@@ -9,6 +9,8 @@ Webpack is a **module bundler**.
 React app, या किसी भी JS app में, अलग-अलग files होती हैं — JS, CSS, images, fonts, etc.  
 **Webpack इन सबको bundle करता है** ताकि browser efficiently load कर सके।
 
+Absolutely! Webpack is a powerful module bundler for JavaScript applications. When working with React, Webpack helps bundle your JavaScript files, along with other assets like CSS, images, and more, into a single file or smaller chunks for efficient loading.
+
 📦 **Trick to Remember:**  
 **"W.E.B.P.A.C.K = Web Easy Bundler for Projects And Components Ka King"**
 
