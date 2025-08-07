@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Service Worker Example</title>
+  </head>
+  <body>
+    <h2>Hello! I am online.</h2>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then((reg) => console.log("✅ Service Worker registered", reg))
+          .catch((err) => console.error("❌ Registration failed:", err));
+      }
+    </script>
+  </body>
+</html>
