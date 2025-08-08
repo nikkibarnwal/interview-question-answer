@@ -140,10 +140,3 @@ React internally uses event delegation. Wo ek top-level container pe event liste
 
 ---
 
-Let me know if you want:
-
-- 👨‍🏫 React version of event delegation using `onClick` in dynamic list
-- 📄 Downloadable PDF summary
-- 🎨 Diagram to visualize bubbling and delegation
-
-Would you like any of these now?
