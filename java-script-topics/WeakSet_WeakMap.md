@@ -4,7 +4,7 @@ Alright — lets understand **WeakSet** aur **WeakMap**
 
 ## 1️⃣ WeakSet – “VIP Guest List” analogy 📝
 
-**Normal Set** → koi bhi value store kar sakta hai (object, primitive).
+**Normal Set** → koi bhi value store kar sakta hai (object, primitive).   
 **WeakSet** → sirf **object** store karta hai, aur unko **weak reference** ke saath rakhta hai.
 
 🔹 **Weak reference** ka matlab → agar object ka koi aur reference nahi hai, to JavaScript usko memory se remove (Garbage Collection) kar dega.
