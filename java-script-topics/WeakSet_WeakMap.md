@@ -39,7 +39,7 @@ user = null; // reference hata diya
 
 ## 2️⃣ WeakMap – “Locker Room” analogy 🔑
 
-**Normal Map** → key kuch bhi ho sakta hai (string, number, object).
+**Normal Map** → key kuch bhi ho sakta hai (string, number, object).   
 **WeakMap** → key **sirf object** ho sakta hai, aur value kuch bhi.
 
 🔹 **Weak reference** → Agar object ka reference kahin aur nahi hai, to key+value dono memory se remove ho jate hain.
@@ -88,5 +88,3 @@ person = null; // reference remove
 
 ---
 
-Agar tum chaho to mai **React ka real-life example** bana ke dikhata hu jisme **WeakMap** ka use karke hum component ke hidden metadata store karein, jo memory leak na kare.
-Kya tum chahte ho mai ye bana du?
