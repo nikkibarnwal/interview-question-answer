@@ -88,7 +88,7 @@ logAll("Raj", 25, "Delhi");
 ---
 
 ⚡ Bhai, agar interviewer ne confuse karne ke liye pucha:
-👉 `"Rest aur Spread ka syntax same hai, kaise decide hoga?"`
+👉 `"Rest aur Spread ka syntax same hai, kaise decide hoga?"`  
 Answer: **Position pe depend karta hai** →
 
 - Right side (copy/expand) = Spread
@@ -96,7 +96,7 @@ Answer: **Position pe depend karta hai** →
 
 ---
 
-Bhai 👌 tu sahi bol raha hai — dono hi **syntax me left side** pe bhi aa sakte hain aur right side pe bhi.
+Bhai 👌 tu sahi bol raha hai — dono hi **syntax me left side** pe bhi aa sakte hain aur right side pe bhi.  
 Main isko thoda aur **clear aur visual** tariqe se samjhata hoon:
 
 ---
