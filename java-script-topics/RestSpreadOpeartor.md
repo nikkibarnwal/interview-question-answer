@@ -160,11 +160,29 @@ console.log(newUser); // { name: "Raj", age: 30 }
 const user = { name: "Raj", age: 30 };
 const updated = { ...user, age: 31 };
 console.log(updated); // { name: "Raj", age: 31 }
+
+
+const user = [
+  { name: "Raj", age: 30 },
+  { name: "Nik", age: 26 },
+  { name: "Rahul", age: 24 }
+];
+
+const updated = user.map(u => ({
+  ...u,
+  isPass: u.age > 25 ? "pass" : "fail"
+}));
+
+console.log(updated);
+Output - [
+  { name: 'Raj', age: 30, isPass: 'pass' },
+  { name: 'Nik', age: 26, isPass: 'pass' },
+  { name: 'Rahul', age: 24, isPass: 'fail' }
+]
 ```
 
 👉 React state update = spread operator most common.
 
----
 
 ---
 
