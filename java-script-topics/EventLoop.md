@@ -2,6 +2,8 @@
 
 JavaScript **Single-Threaded** होता है, यानी एक बार में सिर्फ एक काम कर सकता है। लेकिन फिर भी यह **Asynchronous tasks (setTimeout, API calls, etc.)** को कैसे handle करता है? इसका जवाब है – **Event Loop**!  
 
+To Visualize the Event loop we can check https://www.jsv9000.app/
+
 ---
 
 ## **🍽 Trick to Remember – "Restaurant Kitchen Concept"**  
