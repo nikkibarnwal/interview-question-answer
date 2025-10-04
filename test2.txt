@@ -1,0 +1,32 @@
+Create a professional, visually stunning, and animated presentation for a School Management App called "School360Pro".
+
+🎯 Target Audience:
+School principals, administrators, and school owners (especially small and mid-level schools).
+
+🎨 Design & Theme:
+- Colors: Blue + Green (education + trust + growth)
+- Style: Modern, clean, corporate yet friendly
+- Use gradient backgrounds, school-themed illustrations, stock images of classrooms, students, teachers, and parents
+- Add infographic-style visuals, icons, smooth animations, and mockups of mobile & web app
+- Mix storytelling + business pitch style
+- Layout: Use a mix of grids, split views, comparison tables, and charts for variety
+- Keep text minimal, focus on visuals
+
+📑 Slides to Include:
+1. **Title Slide** – App name (School360Pro) + tagline (“The Complete School Management Solution”) + background of school/education illustration.
+2. **The Problem** – Highlight current challenges with visuals/icons (manual attendance, fee delays, poor communication, exam stress, paperwork overload).
+3. **Our Solution** – Introduce School360Pro with mockup of app on phone + laptop illustration.
+4. **Key Features** – Show 6 main features in a grid with icons & animations (Attendance, Fees, Homework, Transport, Exams, Parent Communication).
+5. **Benefits for Schools** – Infographic slide with school building image showing improvements (less paperwork, cost saving, better management).
+6. **Benefits for Parents** – Visuals of happy parent + child, with points like instant updates, online fee payment, better transparency.
+7. **Analytics Dashboard** – Mock chart/graph visuals (attendance %, fee collection, student performance).
+8. **Pricing Plans** – Modern comparison table/cards (Basic, Standard, Premium) with “Free Trial” highlight.
+9. **Case Study / Success Story** – Before & After layout with testimonial-style quote from a principal.
+10. **Next Steps** – Call-to-action (Book a Free Demo / Contact Us) with icon and big CTA button.
+11. **Thank You Slide** – Minimal design with contact details + QR code placeholder for demo link.
+
+✨ Extra Notes:
+- Use smooth animated transitions between slides.
+- Add flat illustration icons where possible.
+- Ensure slides feel engaging, not text-heavy.
+- Keep visuals consistent for education industry branding.
