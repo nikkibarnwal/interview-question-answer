@@ -2,7 +2,8 @@ Absolutely! Let’s break down **SPA (Single Page Application)** in the fun, sim
 
 ---
 
-## ⚡ **SPA – Single Page Application**  
+## ⚡ **SPA – Single Page Application**
+
 > “Ek hi page, saara game!” 🎮
 
 ---
@@ -13,6 +14,7 @@ Absolutely! Let’s break down **SPA (Single Page Application)** in the fun, sim
 > You write something, erase it, and draw something else — **without changing the board**.
 
 That’s exactly what happens in SPA:
+
 - Your browser loads **one HTML page**
 - React dynamically changes views **without reloading the page**
 
@@ -22,6 +24,7 @@ That’s exactly what happens in SPA:
 
 **SPA = Single Page Application**  
 It is a **web app** that:
+
 - Loads a **single HTML page once**
 - Uses **JavaScript (React)** to change views without page reloads
 
@@ -37,12 +40,12 @@ It is a **web app** that:
 
 ## 🔄 SPA = Uses **Client-Side Rendering (CSR)**
 
-| Feature | Description |
-|--------|-------------|
-| 🔁 Page reloads? | ❌ No (only 1 page) |
-| ⚙️ Who renders views? | ✅ Browser (CSR) |
-| 🧾 HTML from server? | Only **once** (initial load) |
-| 🧠 Routing? | Done on browser side via React Router |
+| Feature               | Description                           |
+| --------------------- | ------------------------------------- |
+| 🔁 Page reloads?      | ❌ No (only 1 page)                   |
+| ⚙️ Who renders views? | ✅ Browser (CSR)                      |
+| 🧾 HTML from server?  | Only **once** (initial load)          |
+| 🧠 Routing?           | Done on browser side via React Router |
 
 ---
 
@@ -72,23 +75,23 @@ It is a **web app** that:
 
 ## 🔎 SPA vs MPA (Multi Page App)
 
-| Feature | SPA (Single Page App) | MPA (Multi Page App) |
-|--------|------------------------|----------------------|
-| Page reloads? | ❌ No | ✅ Yes |
-| Speed | ✅ Fast after first load | 🐢 Slower (each click loads new page) |
-| SEO Friendly? | ❌ Not by default | ✅ Yes |
-| Built with | React, Vue (CSR) | Traditional HTML, PHP, SSR |
+| Feature       | SPA (Single Page App)    | MPA (Multi Page App)                  |
+| ------------- | ------------------------ | ------------------------------------- |
+| Page reloads? | ❌ No                    | ✅ Yes                                |
+| Speed         | ✅ Fast after first load | 🐢 Slower (each click loads new page) |
+| SEO Friendly? | ❌ Not by default        | ✅ Yes                                |
+| Built with    | React, Vue (CSR)         | Traditional HTML, PHP, SSR            |
 
 ---
 
 ## 👇 Common SPA Stack
 
-| Tech | Description |
-|------|-------------|
-| ⚛️ React | Frontend framework |
+| Tech            | Description               |
+| --------------- | ------------------------- |
+| ⚛️ React        | Frontend framework        |
 | 🌍 React Router | For routing between pages |
-| 🎯 Vite / CRA | Build tools |
-| 🧾 index.html | Only one HTML file used! |
+| 🎯 Vite / CRA   | Build tools               |
+| 🧾 index.html   | Only one HTML file used!  |
 
 ---
 

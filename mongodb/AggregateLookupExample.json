@@ -1,0 +1,205 @@
+db.users.insertMany([
+  { _id: "U1", name: "Raj", city: "Pune" },
+  { _id: "U2", name: "Amit", city: "Delhi" },
+  { _id: "U3", name: "Neha", city: "Mumbai" },
+  { _id: "U4", name: "Ravi", city: "Bangalore" }
+]);
+
+db.orders.insertMany([
+  { "userId": "U1", "amount": 800, "item": "Keyboard", "status": "placed" },
+  { "userId": "U1", "amount": 1200, "item": "Mouse", "status": "pending" },
+  { "userId": "U1", "amount": 1600, "item": "Monitor", "status": "placed" },
+  { "userId": "U1", "amount": 1800, "item": "Medicine", "status": "placed" },
+
+  { "userId": "U2", "amount": 500, "item": "Pen Drive", "status": "pending" },
+  { "userId": "U2", "amount": 700, "item": "Mouse Pad", "status": "placed" },
+  { "userId": "U2", "amount": 600, "item": "Cable", "status": "placed" },
+  { "userId": "U2", "amount": 400, "item": "Cable wire", "status": "placed" },
+
+  { "userId": "U3", "amount": 2000, "item": "Laptop", "status": "placed" },
+  { "userId": "U3", "amount": 1500, "item": "Headphones", "status": "pending" },
+  // { "userId": "U3", "amount": 1800, "item": "Webcam", "status": "placed" },
+
+  // { "userId": "U4", "amount": 300, "item": "Charger", "status": "pending" },
+  { "userId": "U4", "amount": 400, "item": "Adapter", "status": "placed" },
+  // { "userId": "U4", "amount": 350, "item": "Cover", "status": "pending" }
+]);
+
+
+db.orders.find({status: "placed"});
+
+// db.orders.aggregate([
+//   { $match: { status: "placed" } },
+//   { $group: { _id: "$userId", avgAmount: { $avg: "$amount" } } }
+// ]);
+
+// Find users who have made more than 2 orders
+
+db.orders.aggregate([
+  {
+    $match: { status: "placed" }  // Only consider orders with status "placed"
+  },
+  {
+    $group:{_id:"$userId", totalOrders:{$sum:1}}
+  },
+  {
+    $match:{totalOrders : {$gt:2} }
+  }
+]);
+
+
+// Get all orders where amount > 1000 and item = "Laptop".
+
+db.orders.aggregate([
+  {
+    $match:{ amount:{$gt:1000}}
+  }
+]);
+
+
+// Find distinct users who purchased any item above ₹1500
+
+db.orders.distinct("userId", { amount: { $gt: 1500 } })
+
+db.orders.aggregate([
+  {$match: { amount : {$gt:1500}}},
+  {$group:{_id:"$userId"}}
+]);
+
+// Get top 2 users who spent the most money
+db.orders.aggregate([
+  {$group:{_id:"$userId", total:{$sum:"$amount"}}},
+  {$sort:{total:-1}}
+])
+db.orders.aggregate([
+  {$group:{_id:"$userId", total:{$sum:"$amount"}}},
+  {$sort:{total:-1}},
+  {$limit:2}
+]);
+
+// Find the second highest spender
+db.orders.aggregate([
+{$group:{_id:"$userId", total:{$sum:"$amount"}}},
+{$sort:{total:-1}},
+{$skip:1},
+{$limit:1}
+  
+]);
+
+// Get users sorted by average order value (descending)
+
+db.orders.aggregate([
+  {
+    $group:{ _id:"$userId", avgAmount:{ $avg:"$amount"} },
+  },
+  {
+    $sort:{avgAmount:-1}
+  }
+]);
+
+
+// Get each user's total spent amount along with their name and city
+db.orders.aggregate([
+  { $group: { _id: "$userId", total: { $sum: "$amount" } } },
+  {
+    $lookup: {
+      from: "users",
+      localField: "_id",
+      foreignField: "_id",
+      as: "userDetails"
+    }
+  },
+   
+  {
+    $unwind: "$userDetails"
+  },
+  {
+    $project: {
+      _id:0,
+      userId: "$_id",
+      totalSpent: "$total",
+      name: "$userDetails.name",
+      city: "$userDetails.city"
+    }
+  },
+   { $sort: { totalSpent: -1 } }  // Sort by totalSpent descending
+])
+
+// Get all users who live in “Delhi” and spent more than ₹1000
+
+db.orders.aggregate([
+  { $group: { _id: "$userId", total: { $sum: "$amount" } } },
+  {
+    $lookup: {
+      from: "users",
+      localField: "_id",
+      foreignField: "_id",
+      as: "userDetails"
+    }
+  },
+  {
+    $unwind: "$userDetails"
+  },
+  
+  {
+    $match:{ "userDetails.city":"Delhi", total:{$gt:1000} }
+  },
+   
+  {
+    $project: {
+      _id:0,
+      userId: "$_id",
+      totalSpent: "$total",
+      name: "$userDetails.name",
+      city: "$userDetails.city"
+    }
+  },
+   { $sort: { totalSpent: -1 } }  // Sort by totalSpent descending
+])
+
+
+
+// Find which city has the highest total sales
+
+db.orders.aggregate([
+  {
+    $lookup:{
+      from: "users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "userDetails"
+    }
+  },
+  {
+    $unwind: "$userDetails"
+  },
+  {
+    $group:{_id:"$userDetails.city", total:{$sum:"$amount"}}
+  },
+  {
+    $sort:{total:-1},
+  },
+  {
+    $limit:1
+  }
+])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

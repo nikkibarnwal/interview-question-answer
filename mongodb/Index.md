@@ -86,6 +86,88 @@ db.users.find({ name: "John" }); // Now faster due to index!
 
 ---
 
-Agar chaho toh main tumhe `explain()` ke saath query performance ka live example bhi samjha sakta hoon!
+Bahut badiya question bhai 👍
+Chalo step by step **Text Index, Geospatial Index, Hashed Index** ko simple **Hindi + English** me samajhte hain with example & trick 👇
 
-Ready for the next MongoDB concept? 😄
+---
+
+## 1️⃣ **Text Index**
+
+🔹 **Use:** For searching text inside string fields (like Google search).
+
+**Example:**
+
+```js
+// Collection: products
+{ name: "Laptop", description: "Powerful gaming laptop" }
+{ name: "Phone", description: "Smartphone with good camera" }
+{ name: "Tablet", description: "Portable device for study" }
+
+// Create text index on description
+db.products.createIndex({ description: "text" });
+
+// Search text "gaming"
+db.products.find({ $text: { $search: "gaming" } });
+```
+
+👉 **Trick (Hindi):** Text Index = "Ctrl+F" jaisa → ek word search karne ka fast tareeka.
+
+---
+
+## 2️⃣ **Geospatial Index (2dsphere)**
+
+🔹 **Use:** For storing and querying **location data (latitude/longitude)**.
+Perfect for **“near me” features** (e.g., Ola, Zomato).
+
+**Example:**
+
+```js
+// Collection: places
+{
+  name: "Cafe Coffee Day",
+  location: { type: "Point", coordinates: [77.5946, 12.9716] } // [longitude, latitude]
+}
+
+// Create 2dsphere index
+db.places.createIndex({ location: "2dsphere" });
+
+// Find places near coordinates
+db.places.find({
+  location: {
+    $near: {
+      $geometry: { type: "Point", coordinates: [77.59, 12.97] },
+      $maxDistance: 5000 // 5 km radius
+    }
+  }
+});
+```
+
+👉 **Trick (Hindi):** Geospatial Index = "Google Maps ka **Nearby Me** button".
+
+---
+
+## 3️⃣ **Hashed Index**
+
+🔹 **Use:** For **sharding / distributed systems** → ensures uniform distribution of values across shards.
+Mainly used for **fields with sequential values** (like `userId`).
+
+**Example:**
+
+```js
+// Create hashed index
+db.users.createIndex({ userId: "hashed" });
+
+// Now MongoDB can shard/distribute documents efficiently
+```
+
+👉 **Trick (Hindi):** Hashed Index = "Laddoo ko evenly todkar sabko barabar dena" → sab server par equal load.
+
+---
+
+✅ **Summary Line (Interview ke liye ready answer):**
+
+- **Text Index** → For searching words inside text (like Ctrl+F).
+- **Geospatial Index (2dsphere)** → For location-based queries (like Nearby Restaurants in Zomato).
+- **Hashed Index** → For load balancing in sharding, distributes data uniformly.
+
+---
