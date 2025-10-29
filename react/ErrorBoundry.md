@@ -5,6 +5,7 @@ Great! Let’s break down **error handling in React** and **error boundaries** �
 ## 🧨 What is Error Handling in React?
 
 React apps can sometimes crash due to unexpected errors — like:
+
 - An API fails
 - A component throws an error
 - Some logic goes wrong
@@ -23,6 +24,7 @@ Imagine ghar ka electric board ⚡
 > **Circuit breaker** saves the whole house from blacking out! 🏠
 
 Same with React:
+
 > **Error boundaries = Circuit breakers for components**
 
 ---
@@ -39,11 +41,13 @@ Same with React:
 ## ⚙️ When Do They Catch Errors?
 
 > Error boundaries only catch errors in:
+
 - Render phase 🖼
 - Lifecycle methods ⚙️
 - Constructor
 
 > ❌ But NOT in:
+
 - Event handlers (you handle those yourself using `try...catch`)
 
 ---
@@ -57,8 +61,9 @@ React provides the pattern using `componentDidCatch` and `getDerivedStateFromErr
 ### 🧩 Step-by-Step Example
 
 #### 📁 `ErrorBoundary.js`
+
 ```jsx
-import React from 'react';
+import React from "react";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -93,9 +98,9 @@ export default ErrorBoundary;
 ### 📁 `App.js` with Faulty Component
 
 ```jsx
-import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
-import BuggyComponent from './BuggyComponent';
+import React from "react";
+import ErrorBoundary from "./ErrorBoundary";
+import BuggyComponent from "./BuggyComponent";
 
 function App() {
   return (
@@ -117,7 +122,7 @@ export default App;
 
 ```jsx
 const BuggyComponent = () => {
-  throw new Error('💥 I crashed!');
+  throw new Error("💥 I crashed!");
   return <div>This won't render.</div>;
 };
 
@@ -138,13 +143,13 @@ Instead of app crash, you see:
 
 ## 🧠 Summary Table
 
-| Topic | Info |
-|------|------|
-| ✅ Error Boundaries | Catch errors in child components |
-| 📍 Use Case | Render errors, lifecycle, constructor |
-| 🧱 Not Catching | Event handlers, async code |
-| 👨‍🔧 Create | Class component with `componentDidCatch` |
-| 🌟 Fallback UI | Show friendly message or custom UI |
+| Topic               | Info                                     |
+| ------------------- | ---------------------------------------- |
+| ✅ Error Boundaries | Catch errors in child components         |
+| 📍 Use Case         | Render errors, lifecycle, constructor    |
+| 🧱 Not Catching     | Event handlers, async code               |
+| 👨‍🔧 Create           | Class component with `componentDidCatch` |
+| 🌟 Fallback UI      | Show friendly message or custom UI       |
 
 ---
 

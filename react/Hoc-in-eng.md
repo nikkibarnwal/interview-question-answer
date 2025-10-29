@@ -21,7 +21,8 @@ That's what HOC does!
 ## 🧠 What is a HOC?
 
 A **Higher-Order Component (HOC)** is:
-- A **function** that takes a component as input  
+
+- A **function** that takes a component as input
 - And returns a **new component** with added features
 
 ```js
@@ -41,33 +42,35 @@ const EnhancedComponent = withExtraFeatures(OriginalComponent);
 
 ## 🔄 Real-Life Analogy
 
-| Base | Wrapped |
-|------|---------|
-| 🍔 Plain burger | 🍔🍟 Combo meal (extra features) |
-| 🧑 User component | 👮‍♂️ User + Auth check (HOC) |
+| Base              | Wrapped                          |
+| ----------------- | -------------------------------- |
+| 🍔 Plain burger   | 🍔🍟 Combo meal (extra features) |
+| 🧑 User component | 👮‍♂️ User + Auth check (HOC)       |
 
 ---
 
 ## 📦 Common Use Cases
 
-| Use Case | Example |
-|----------|---------|
-| Authentication | `withAuth(Component)` |
-| Error handling | `withErrorBoundary(Component)` |
-| Loading spinners | `withLoader(Component)` |
-| Analytics | `withTracking(Component)` |
+| Use Case         | Example                        |
+| ---------------- | ------------------------------ |
+| Authentication   | `withAuth(Component)`          |
+| Error handling   | `withErrorBoundary(Component)` |
+| Loading spinners | `withLoader(Component)`        |
+| Analytics        | `withTracking(Component)`      |
 
 ---
 
 ## 🛠 Let’s Build It Step by Step
 
 We'll make a:
+
 - 🎁 Normal `Message` component
 - 🔁 HOC called `withGreeting()` to wrap it with extra text
 
 ---
 
 ### 1️⃣ `Message.js` (Base Component)
+
 ```jsx
 const Message = ({ text }) => {
   return <h2>{text}</h2>;
@@ -142,12 +145,12 @@ Thanks for visiting! 🎉
 
 ## 🔍 Summary
 
-| Feature | HOC |
-|--------|-----|
-| 🔁 Reusable logic | ✅ Yes |
-| 🧠 Pattern | Function that returns a component |
-| 🧩 Syntax | `const NewComp = withSomething(OldComp)` |
-| ⚛ Used with | Auth, Loading, Analytics, etc. |
+| Feature           | HOC                                      |
+| ----------------- | ---------------------------------------- |
+| 🔁 Reusable logic | ✅ Yes                                   |
+| 🧠 Pattern        | Function that returns a component        |
+| 🧩 Syntax         | `const NewComp = withSomething(OldComp)` |
+| ⚛ Used with       | Auth, Loading, Analytics, etc.           |
 
 ---
 
@@ -159,6 +162,7 @@ Thanks for visiting! 🎉
 ---
 
 Want to see:
+
 - HOC for **auth check**
 - HOC for **loading spinner**
 - Or how to use HOC with **class components**?

@@ -1,27 +1,31 @@
-### **React Functional Components में Lifecycle Methods (Easy Trick to Remember) 🚀**  
+### **React Functional Components में Lifecycle Methods (Easy Trick to Remember) 🚀**
 
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
-पहले **class-based components** में lifecycle methods होते थे, जैसे:  
-- `componentDidMount()`  
-- `componentDidUpdate()`  
-- `componentWillUnmount()`  
+पहले **class-based components** में lifecycle methods होते थे, जैसे:
 
-पर Functional Components में **React Hooks** की मदद से lifecycle methods को handle किया जाता है।  
+- `componentDidMount()`
+- `componentDidUpdate()`
+- `componentWillUnmount()`
 
-### **🔥 Functional Components में Lifecycle को याद रखने की Easy Trick**  
-👉 Functional Components में lifecycle methods को manage करने के लिए सिर्फ **एक Hook** याद रखना है – `useEffect()`.  
+पर Functional Components में **React Hooks** की मदद से lifecycle methods को handle किया जाता है।
+
+### **🔥 Functional Components में Lifecycle को याद रखने की Easy Trick**
+
+👉 Functional Components में lifecycle methods को manage करने के लिए सिर्फ **एक Hook** याद रखना है – `useEffect()`.
 
 💡 **Trick to Remember:**  
-🛑 **M-U-U** → (Mount, Update, Unmount)  
-- **M** → `useEffect(() => {}, [])` → **Mounting** (Component पहली बार load होता है)  
-- **U** → `useEffect(() => { ... }, [dependency])` → **Updating** (जब state या props change हो)  
-- **U** → `useEffect(() => { return () => { ... } }, [])` → **Unmounting** (Component हटने पर cleanup)  
+🛑 **M-U-U** → (Mount, Update, Unmount)
+
+- **M** → `useEffect(() => {}, [])` → **Mounting** (Component पहली बार load होता है)
+- **U** → `useEffect(() => { ... }, [dependency])` → **Updating** (जब state या props change हो)
+- **U** → `useEffect(() => { return () => { ... } }, [])` → **Unmounting** (Component हटने पर cleanup)
 
 ---
 
-## **1️⃣ Mounting Phase (componentDidMount) 🟢**  
-📌 **जब Component पहली बार render होता है।**  
+## **1️⃣ Mounting Phase (componentDidMount) 🟢**
+
+📌 **जब Component पहली बार render होता है।**
 
 ```jsx
 import { useEffect } from "react";
@@ -36,12 +40,14 @@ function MyComponent() {
   return <h1>Hello, React!</h1>;
 }
 ```
-💡 **Trick:** `useEffect(() => {}, [])` → सिर्फ एक बार चलेगा, जैसे `componentDidMount()`  
+
+💡 **Trick:** `useEffect(() => {}, [])` → सिर्फ एक बार चलेगा, जैसे `componentDidMount()`
 
 ---
 
-## **2️⃣ Updating Phase (componentDidUpdate) 🔄**  
-📌 **जब state या props update होते हैं।**  
+## **2️⃣ Updating Phase (componentDidUpdate) 🔄**
+
+📌 **जब state या props update होते हैं।**
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -61,12 +67,14 @@ function Counter() {
   );
 }
 ```
-💡 **Trick:** `useEffect(() => { ... }, [dependency])` → जब state/props change हो, तब चलेगा, जैसे `componentDidUpdate()`  
+
+💡 **Trick:** `useEffect(() => { ... }, [dependency])` → जब state/props change हो, तब चलेगा, जैसे `componentDidUpdate()`
 
 ---
 
-## **3️⃣ Unmounting Phase (componentWillUnmount) ❌**  
-📌 **जब component destroy हो जाए (जैसे किसी page से हट जाए)**  
+## **3️⃣ Unmounting Phase (componentWillUnmount) ❌**
+
+📌 **जब component destroy हो जाए (जैसे किसी page से हट जाए)**
 
 ```jsx
 import { useEffect } from "react";
@@ -86,15 +94,17 @@ function Timer() {
   return <h1>Timer Running...</h1>;
 }
 ```
-💡 **Trick:** `useEffect(() => { return () => { ... } }, [])` → Cleanup function, जैसे `componentWillUnmount()`  
+
+💡 **Trick:** `useEffect(() => { return () => { ... } }, [])` → Cleanup function, जैसे `componentWillUnmount()`
 
 ---
 
 ## **🚀 Final Trick to Remember M-U-U 🔥**
-| Phase | Class Component | Functional Component |
-|--------|------------------|------------------|
-| **Mounting** | `componentDidMount()` | `useEffect(() => {}, [])` |
-| **Updating** | `componentDidUpdate()` | `useEffect(() => {}, [dependency])` |
+
+| Phase          | Class Component          | Functional Component                            |
+| -------------- | ------------------------ | ----------------------------------------------- |
+| **Mounting**   | `componentDidMount()`    | `useEffect(() => {}, [])`                       |
+| **Updating**   | `componentDidUpdate()`   | `useEffect(() => {}, [dependency])`             |
 | **Unmounting** | `componentWillUnmount()` | `useEffect(() => { return () => { ... } }, [])` |
 
 🎯 बस **M-U-U** (Mount, Update, Unmount) याद रखो और Functional Component में Lifecycle का खेल आसान हो जाएगा! 🚀

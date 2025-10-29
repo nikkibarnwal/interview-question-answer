@@ -2,10 +2,12 @@ Yes! ✅ You **can achieve `shouldComponentUpdate` behavior in functional compon
 
 ---
 
-## 🔧 1. **`React.memo`** – for component-level memoization  
+## 🔧 1. **`React.memo`** – for component-level memoization
+
 > 🧠 Similar to `shouldComponentUpdate`, but for **functional components**
 
 ### 🔹 What it does:
+
 - Prevents **re-rendering** if **props don’t change**
 - It’s like saying: “Only re-render if my input props changed”
 
@@ -33,6 +35,7 @@ React.memo(Component) ≈ class extends PureComponent {}
 Sometimes, a parent passes a **new function or object** as prop, which causes unnecessary re-renders.
 
 Use:
+
 - `useCallback` for memoizing **functions**
 - `useMemo` for memoizing **computed values**
 
@@ -69,12 +72,12 @@ const Child = React.memo(({ onClick }) => {
 
 ## 🔍 Quick Comparison Table
 
-| Class Component | Functional Equivalent |
-|------------------|------------------------|
+| Class Component                    | Functional Equivalent   |
+| ---------------------------------- | ----------------------- |
 | `shouldComponentUpdate(nextProps)` | `React.memo(Component)` |
-| `PureComponent` | `React.memo()` |
-| Memoize function in `render()` | `useCallback()` |
-| Memoize value in `render()` | `useMemo()` |
+| `PureComponent`                    | `React.memo()`          |
+| Memoize function in `render()`     | `useCallback()`         |
+| Memoize value in `render()`        | `useMemo()`             |
 
 ---
 
@@ -83,12 +86,15 @@ const Child = React.memo(({ onClick }) => {
 You can even control **what counts as “changed” props**:
 
 ```jsx
-const MyComponent = React.memo((props) => {
-  return <div>{props.name}</div>;
-}, (prevProps, nextProps) => {
-  // Only re-render if name has changed
-  return prevProps.name === nextProps.name;
-});
+const MyComponent = React.memo(
+  (props) => {
+    return <div>{props.name}</div>;
+  },
+  (prevProps, nextProps) => {
+    // Only re-render if name has changed
+    return prevProps.name === nextProps.name;
+  }
+);
 ```
 
 ---

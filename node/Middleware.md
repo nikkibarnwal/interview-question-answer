@@ -33,21 +33,21 @@ Imagine ek restaurant jahan:
 ## 📦 Middleware Code Example:
 
 ```js
-const express = require('express');
+const express = require("express");
 const app = express();
 
 // ✅ Custom middleware
 app.use((req, res, next) => {
-  console.log('🛑 Request received:', req.method, req.url);
+  console.log("🛑 Request received:", req.method, req.url);
   next(); // Bina iske aage nahi jaayega
 });
 
 // ✅ Route
-app.get('/', (req, res) => {
-  res.send('🍕 Welcome to Pizza Shop!');
+app.get("/", (req, res) => {
+  res.send("🍕 Welcome to Pizza Shop!");
 });
 
-app.listen(3000, () => console.log('Server running...'));
+app.listen(3000, () => console.log("Server running..."));
 ```
 
 ---
@@ -64,12 +64,12 @@ app.listen(3000, () => console.log('Server running...'));
 
 ## 🔢 Types of Middleware:
 
-| Type                 | Kaam kya karta hai?                          |
-|----------------------|---------------------------------------------|
-| 🔧 Built-in (express.json)  | JSON body parse karta hai                |
-| 🧩 Application-level | Custom logic (logging, auth, etc.)           |
-| 🔁 Router-level      | Specific routes pe lagta hai                 |
-| 🧼 Error-handling    | Agar galti ho jaaye toh usse handle karta hai |
+| Type                       | Kaam kya karta hai?                           |
+| -------------------------- | --------------------------------------------- |
+| 🔧 Built-in (express.json) | JSON body parse karta hai                     |
+| 🧩 Application-level       | Custom logic (logging, auth, etc.)            |
+| 🔁 Router-level            | Specific routes pe lagta hai                  |
+| 🧼 Error-handling          | Agar galti ho jaaye toh usse handle karta hai |
 
 ---
 
@@ -77,19 +77,19 @@ app.listen(3000, () => console.log('Server running...'));
 
 > **Middleware = "Gatekeeper" ya "Security Check"**
 
-- **Use** karta hai `.use()` se  
-- **Kaam karta hai beech mein** (before final response)  
+- **Use** karta hai `.use()` se
+- **Kaam karta hai beech mein** (before final response)
 - **Aage jaane ke liye `next()` call zaroori hai**
 
 ---
 
 ## 🔥 Summary (Chef Style 🍽️):
 
-| Middleware Role         | Restaurant Analogy                        |
-|--------------------------|-------------------------------------------|
-| Logging middleware       | 📋 Order likhne wala waiter                |
-| Auth middleware          | 🛂 Security guard "Kya aap authorized ho?"  |
-| Body-parser middleware   | 🔍 Ingredient list read karna              |
-| Final Route handler      | 👨‍🍳 Chef who finally makes the pizza 🍕    |
+| Middleware Role        | Restaurant Analogy                         |
+| ---------------------- | ------------------------------------------ |
+| Logging middleware     | 📋 Order likhne wala waiter                |
+| Auth middleware        | 🛂 Security guard "Kya aap authorized ho?" |
+| Body-parser middleware | 🔍 Ingredient list read karna              |
+| Final Route handler    | 👨‍🍳 Chef who finally makes the pizza 🍕     |
 
 ---

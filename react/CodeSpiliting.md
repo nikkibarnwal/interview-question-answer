@@ -11,6 +11,7 @@ Let’s explain **Code Splitting in React** in our signature style — easy Hind
 Jab app bada ho jata hai, sabhi code ko **ek saath load karna slow** ho jata hai ⛔
 
 **Code splitting** helps in:
+
 - Faster page load
 - Lazy loading components
 - Better performance
@@ -31,10 +32,10 @@ Just like that, React loads components **only when needed**, not all at once.
 
 ## 🧠 Why Use Code Splitting?
 
-| 🔥 Problem | ✅ Solution |
-|-----------|-------------|
-| Big bundle size | Load smaller chunks |
-| Slow initial load | Load code **on demand** |
+| 🔥 Problem                          | ✅ Solution                 |
+| ----------------------------------- | --------------------------- |
+| Big bundle size                     | Load smaller chunks         |
+| Slow initial load                   | Load code **on demand**     |
 | All routes/components load together | Lazy load routes/components |
 
 ---
@@ -44,9 +45,9 @@ Just like that, React loads components **only when needed**, not all at once.
 ### ✅ Using `React.lazy()` + `Suspense`
 
 ```jsx
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
 
-const LazyComponent = React.lazy(() => import('./MyComponent'));
+const LazyComponent = React.lazy(() => import("./MyComponent"));
 
 function App() {
   return (
@@ -68,23 +69,23 @@ function App() {
 
 ## 🧭 Where to Use Code Splitting?
 
-| 📍 Use Code Splitting In... | ✅ Example |
-|----------------------------|------------|
-| 🔁 Lazy loaded components | Modals, charts, image galleries |
-| 🛣️ React Router pages | `/home`, `/profile`, `/about` |
-| 🧰 Heavy 3rd party libraries | Chart.js, Mapbox, etc. |
-| 👥 Role-based screens | Admin dashboard, etc. |
+| 📍 Use Code Splitting In...  | ✅ Example                      |
+| ---------------------------- | ------------------------------- |
+| 🔁 Lazy loaded components    | Modals, charts, image galleries |
+| 🛣️ React Router pages        | `/home`, `/profile`, `/about`   |
+| 🧰 Heavy 3rd party libraries | Chart.js, Mapbox, etc.          |
+| 👥 Role-based screens        | Admin dashboard, etc.           |
 
 ---
 
 ## 🗂️ Example – Route Based Code Splitting
 
 ```jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
 
 <BrowserRouter>
   <Suspense fallback={<div>Loading...</div>}>
@@ -93,7 +94,7 @@ const About = lazy(() => import('./pages/About'));
       <Route path="/about" element={<About />} />
     </Routes>
   </Suspense>
-</BrowserRouter>
+</BrowserRouter>;
 ```
 
 > ✅ Now React will only load `/about` page code **when you visit it**
@@ -102,24 +103,24 @@ const About = lazy(() => import('./pages/About'));
 
 ## 🧠 Summary
 
-| Term | Meaning |
-|------|---------|
-| Code Splitting | Breaking code into smaller bundles |
-| `React.lazy()` | Loads component lazily (on demand) |
-| `Suspense` | Shows fallback during loading |
+| Term                  | Meaning                             |
+| --------------------- | ----------------------------------- |
+| Code Splitting        | Breaking code into smaller bundles  |
+| `React.lazy()`        | Loads component lazily (on demand)  |
+| `Suspense`            | Shows fallback during loading       |
 | Route-based splitting | Load pages only when user navigates |
-| Improves | Performance, speed, and UX ✅ |
+| Improves              | Performance, speed, and UX ✅       |
 
 ---
 
 ## 🛡️ Best Practices
 
-| 💡 Tip | 📌 Do This |
-|--------|-----------|
-| Keep fallback UI clean | Show loader/spinner/placeholder |
-| Don’t over-split | Only split large or rarely-used components |
-| Test lazy components | Wrap in error boundary too |
-| Monitor bundle size | Use tools like webpack-bundle-analyzer |
+| 💡 Tip                 | 📌 Do This                                 |
+| ---------------------- | ------------------------------------------ |
+| Keep fallback UI clean | Show loader/spinner/placeholder            |
+| Don’t over-split       | Only split large or rarely-used components |
+| Test lazy components   | Wrap in error boundary too                 |
+| Monitor bundle size    | Use tools like webpack-bundle-analyzer     |
 
 ---
 

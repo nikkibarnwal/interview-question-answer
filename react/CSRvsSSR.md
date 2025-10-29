@@ -12,10 +12,10 @@ That’s what SSR vs CSR is all about!
 
 ## 🎯 **Easy to Remember Trick – “Kitchen Analogy” 🍽**
 
-| Type | What Happens | Analogy |
-|------|---------------|---------|
-| 🍽 **Server-Side Rendering (SSR)** | Server sends **ready-made HTML** | Like ordering food and getting it **fully cooked from the kitchen** |
-| 🍳 **Client-Side Rendering (CSR)** | Server sends **raw JavaScript**, browser cooks it | Like getting ingredients and **cooking food yourself at home** |
+| Type                               | What Happens                                      | Analogy                                                             |
+| ---------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| 🍽 **Server-Side Rendering (SSR)**  | Server sends **ready-made HTML**                  | Like ordering food and getting it **fully cooked from the kitchen** |
+| 🍳 **Client-Side Rendering (CSR)** | Server sends **raw JavaScript**, browser cooks it | Like getting ingredients and **cooking food yourself at home**      |
 
 ---
 
@@ -24,25 +24,30 @@ That’s what SSR vs CSR is all about!
 👨‍💻 React app is loaded in the browser, and **all rendering happens on the client side** (your browser).
 
 ### 🛠 CSR Flow:
+
 1. Browser loads `index.html` (mostly empty)
 2. Loads JavaScript bundle
 3. React runs, builds the UI **in the browser**
 
 ### ✅ Pros:
+
 - Super interactive
 - Once loaded, feels fast
 - Great for apps (like dashboards, Gmail, etc.)
 
 ### ❌ Cons:
+
 - Initial loading is slow (JS must load first)
 - Bad for SEO (Google bot sees empty page first)
 
 ---
 
 ### 🧪 CSR Example: Create React App (CRA)
+
 ```bash
 npx create-react-app my-app
 ```
+
 > CRA uses **Client-Side Rendering by default**
 
 ---
@@ -53,26 +58,31 @@ npx create-react-app my-app
 React is used on the server to **pre-render the page content**.
 
 ### 🛠 SSR Flow:
+
 1. User requests a page
 2. Server runs React → generates HTML
 3. Sends ready-made page to browser
 4. Then React “hydrates” the page (makes it interactive)
 
 ### ✅ Pros:
+
 - Fast first load (because browser sees full HTML)
 - Better SEO (Google sees full content)
 - Good for blogs, landing pages, e-commerce
 
 ### ❌ Cons:
+
 - Server has to do more work
 - Little slower for interactivity (hydration delay)
 
 ---
 
 ### 🧪 SSR Example: Next.js
+
 ```bash
 npx create-next-app@latest my-ssr-app
 ```
+
 > Next.js supports SSR **out of the box** ✨
 
 ```jsx
@@ -97,19 +107,20 @@ export default Home;
 
 ## 🔄 Summary – CSR vs SSR
 
-| Feature | Client-Side (CSR) | Server-Side (SSR) |
-|--------|-------------------|-------------------|
-| Rendering | In browser | On server |
-| Speed (first load) | Slow | Fast |
-| SEO Friendly | ❌ Poor | ✅ Excellent |
-| Interactivity | ✅ Fast after load | ⚠️ Slight delay (hydration) |
-| Use When | Dashboards, SPAs | Blogs, News, E-commerce |
+| Feature            | Client-Side (CSR)  | Server-Side (SSR)           |
+| ------------------ | ------------------ | --------------------------- |
+| Rendering          | In browser         | On server                   |
+| Speed (first load) | Slow               | Fast                        |
+| SEO Friendly       | ❌ Poor            | ✅ Excellent                |
+| Interactivity      | ✅ Fast after load | ⚠️ Slight delay (hydration) |
+| Use When           | Dashboards, SPAs   | Blogs, News, E-commerce     |
 
 ---
 
 ## 📦 Bonus: Static Site Generation (SSG)
 
-Next.js also supports **SSG**, which is like **pre-building HTML at build time**  
+Next.js also supports **SSG**, which is like **pre-building HTML at build time**
+
 > Great for content that doesn’t change often
 
 ---

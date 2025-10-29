@@ -2,16 +2,17 @@ Absolutely! Let’s break down **Local State vs Global State** in React — in o
 
 ---
 
-## 🎯 Question:  
+## 🎯 Question:
+
 **“When should we use local state, and when to use global state (like Redux/Context)?”**
 
 ---
 
 ## 🔍 What’s the Difference?
 
-| Type         | Scope / Access         | Example              |
-|--------------|------------------------|----------------------|
-| 🏠 Local State   | Only in **one component** | `useState()` |
+| Type            | Scope / Access                      | Example                |
+| --------------- | ----------------------------------- | ---------------------- |
+| 🏠 Local State  | Only in **one component**           | `useState()`           |
 | 🌍 Global State | Accessible from **anywhere** in app | `Redux`, `Context API` |
 
 ---
@@ -31,6 +32,7 @@ Absolutely! Let’s break down **Local State vs Global State** in React — in o
 ✅ The state is **used only in one component**
 
 Examples:
+
 - Modal open/close
 - Input field value
 - Toggle theme locally
@@ -50,6 +52,7 @@ const [isOpen, setIsOpen] = useState(false);
 ✅ State is **needed app-wide** (or in distant components)
 
 Examples:
+
 - Logged-in user info
 - Cart data
 - Theme settings (dark/light)
@@ -57,6 +60,7 @@ Examples:
 - Notifications
 
 Use tools like:
+
 - **Redux Toolkit**
 - **React Context API**
 
@@ -72,16 +76,16 @@ state = {
 
 ## 🧠 Summary Table
 
-| Situation | Use Local or Global? |
-|-----------|----------------------|
-| Input field in a form | 🏠 Local |
-| Toggle a dropdown in a navbar | 🏠 Local |
-| Login user info (used in header, profile, etc.) | 🌍 Global |
-| Cart items in e-commerce app | 🌍 Global |
-| Temporary loading spinner | 🏠 Local |
-| Theme toggle (dark/light across app) | 🌍 Global |
-| Form error inside 1 component | 🏠 Local |
-| Notification system | 🌍 Global |
+| Situation                                       | Use Local or Global? |
+| ----------------------------------------------- | -------------------- |
+| Input field in a form                           | 🏠 Local             |
+| Toggle a dropdown in a navbar                   | 🏠 Local             |
+| Login user info (used in header, profile, etc.) | 🌍 Global            |
+| Cart items in e-commerce app                    | 🌍 Global            |
+| Temporary loading spinner                       | 🏠 Local             |
+| Theme toggle (dark/light across app)            | 🌍 Global            |
+| Form error inside 1 component                   | 🏠 Local             |
+| Notification system                             | 🌍 Global            |
 
 ---
 
@@ -96,12 +100,12 @@ Storing everything in Redux/Context = bloat + performance hit.
 
 ## 💡 Pro Tip
 
-| Pattern | Use Case |
-|--------|----------|
-| `useState()` | Local UI state |
-| `useReducer()` | Complex local logic |
-| `Context API` | Small app-wide shared state |
-| `Redux Toolkit` | Large-scale app-wide state |
+| Pattern         | Use Case                    |
+| --------------- | --------------------------- |
+| `useState()`    | Local UI state              |
+| `useReducer()`  | Complex local logic         |
+| `Context API`   | Small app-wide shared state |
+| `Redux Toolkit` | Large-scale app-wide state  |
 
 ---
 
