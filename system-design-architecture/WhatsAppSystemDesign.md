@@ -1,5 +1,3 @@
----
-
 ## 🧠 What is System Design?
 
 System design ka matlab hai — **“ek aisa plan banana jisse hum large-scale system bana sake jo fast, reliable aur scalable ho.”**
