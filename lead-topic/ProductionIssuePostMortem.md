@@ -53,3 +53,19 @@ Here’s how you can answer **“How do you handle production issues via post-mo
 - **Documentation:** Confluence, Notion, Google Docs
 
 ---
+
+Perfect 👌 — here’s your **crisp 1-minute spoken version** in your natural **Hindi + English mix** — short, confident, and leadership tone:
+
+---
+
+🗣️ **1-Minute Spoken Answer:**
+
+> “Main post-mortem hamesha **blameless** rakhta hoon — matlab focus hota hai problem pe, person pe nahi.
+> Jab bhi koi production issue hota hai, main sabse pehle team ko safe environment deta hoon jahan sab openly discuss kar sakein.
+> Hum ‘Who did this?’ nahi poochte, hum poochte hain ‘What went wrong and why system allowed it to happen?’
+> For example — kya test coverage kam tha, ya alert missing tha, ya deployment checklist incomplete thi.
+> Is approach se blame culture nahi banta, aur team seekhti hai instead of hiding mistakes.
+> End me hum ek clear action plan banate hain — monitoring improve karna, tests add karna, doc update karna — taaki same issue dobara na ho.
+> Main hamesha team ko ye mindset deta hoon — _Mistake is fine, but not learning from it is not._”
+
+---
