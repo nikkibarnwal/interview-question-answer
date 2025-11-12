@@ -39,14 +39,14 @@ aur jisme hum React ke built-in hooks (useState, useEffect, etc.) ka use karke *
 ```javascript
 import { useState, useEffect } from "react";
 
-function useFetch(url) {
+function useFetch(url, options = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
-    fetch(url)
+    fetch(url, options)
       .then((res) => {
         if (!res.ok) throw new Error("Network error");
         return res.json();
@@ -77,6 +77,30 @@ export default function UserList() {
   const { data: users, loading, error } = useFetch(
     "https://jsonplaceholder.typicode.com/users"
   );
+  /*
+  const { data: users, loading, error } = useFetch(
+    "https://jsonplaceholder.typicode.com/users",
+    {
+      headers: {
+        Authorization: "Bearer my-token",
+        "Content-Type": "application/json",
+      },
+    }
+  );
+*/
+
+  /*
+  const { data, loading, error } = useFetch(
+    "https://api.example.com/add-user",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: "Rajendra", age: 30 }),
+    }
+  );
+  */
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;

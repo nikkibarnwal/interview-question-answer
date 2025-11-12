@@ -1,4 +1,4 @@
-Bilkul bhai! 😄  Chalo ab **Async/Await error handling** ko bhi samjhte hain 🍕
+Bilkul bhai! 😄 Chalo ab **Async/Await error handling** ko bhi samjhte hain 🍕
 
 ---
 
@@ -23,7 +23,7 @@ Yeh hi hai `try-catch` in `async/await`!
 ## ✅ Basic Syntax: Try-Catch
 
 ```js
-app.get('/order', async (req, res) => {
+app.get("/order", async (req, res) => {
   try {
     const pizza = await makePizza(); // 👨‍🍳 pizza ban raha hai
     res.send(pizza);
@@ -51,7 +51,7 @@ app.use((err, req, res, next) => {
 ### And throw from async controller:
 
 ```js
-app.get('/order', async (req, res, next) => {
+app.get("/order", async (req, res, next) => {
   try {
     const pizza = await makePizza();
     res.send(pizza);
@@ -71,11 +71,11 @@ app.get('/order', async (req, res, next) => {
 
 ## 📋 Summary Table:
 
-| Technique              | Use Case                                 | Trick |
-|------------------------|-------------------------------------------|-------|
-| `try { await } catch` | Basic async error handle                  | Chef + Gloves analogy |
-| `next(err)`            | Middleware mein error pass karna          | Chef kitchen manager ko bulata hai |
-| Global error middleware| Har jagah se error handle ek jagah pe     | Manager har problem handle karta hai |
+| Technique               | Use Case                              | Trick                                |
+| ----------------------- | ------------------------------------- | ------------------------------------ |
+| `try { await } catch`   | Basic async error handle              | Chef + Gloves analogy                |
+| `next(err)`             | Middleware mein error pass karna      | Chef kitchen manager ko bulata hai   |
+| Global error middleware | Har jagah se error handle ek jagah pe | Manager har problem handle karta hai |
 
 ---
 
