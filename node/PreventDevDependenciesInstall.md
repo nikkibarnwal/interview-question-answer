@@ -12,7 +12,8 @@ In Node.js, how do we prevent devDependencies from installing in production?
 
 # ✅ **Short, Senior-Level Punchline**
 
-“Production environment me hum sirf actual runtime dependencies install karte hain, devDependencies ko skip kar dete hain using environment flags like `NODE_ENV=production` or `npm ci --only=production`.”
+“Production environment me hum sirf actual runtime dependencies install karte hain, devDependencies ko skip kar dete hain using environment flags
+like `NODE_ENV=production` or `npm ci --only=production`.”
 
 ---
 
