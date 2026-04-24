@@ -124,14 +124,3 @@ The frontend was a multi-page React portal using:
 “I built a Membership Management System in MERN stack that handled member registrations, renewals, payments, document verification, and admin reporting. I built cron jobs for auto-renewal reminders, integrated payment gateways, implemented RBAC using JWT, created document upload workflow, and optimized reports using MongoDB aggregations. The React frontend used React Query and reusable components. It simplified the entire membership process and reduced admin workload significantly.”
 
 ---
-
-# ⭐ If You Want
-
-I can also give you:
-
-✅ STAR format answer
-✅ Architecture diagram explanation
-✅ Follow-up questions **with answers**
-(e.g., “How did you do RBAC?”, “How did cron jobs run?”, “How did you secure payments?”)
-
-Just tell me — **Do you want follow-up questions & answers for this project?**

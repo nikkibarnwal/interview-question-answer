@@ -1,6 +1,6 @@
 What are process.nextTick(), setImmediate(), and setTimeout()? What’s the difference?
 
-### `process.nextTick()`, `setImmediate()`, aur `setTimeout()`  
+### `process.nextTick()`, `setImmediate()`, aur `setTimeout()`
 
 ---
 
@@ -14,11 +14,11 @@ Ye teeno functions Node.js mein use hote hain **asynchronous tasks schedule karn
 
 Imagine ek chef ke paas 3 tarah ke reminders hain:
 
-| Function            | Reminder Type                        | Hindi Style Explanation                             |
-|---------------------|--------------------------------------|------------------------------------------------------|
-| `process.nextTick()` | 🛎️ **Microwave Reminder**         | "Jo kaam **turant next moment** mein karna hai"      |
-| `setImmediate()`     | 🔔 **Wall Clock Reminder**          | "Kaam event loop complete hone ke baad karna hai"    |
-| `setTimeout()`       | ⏰ **Alarm Clock** (delay wala)      | "Itne time baad kaam karna hai (min. 0ms bhi ho sakta)" |
+| Function             | Reminder Type                   | Hindi Style Explanation                                 |
+| -------------------- | ------------------------------- | ------------------------------------------------------- |
+| `process.nextTick()` | 🛎️ **Microwave Reminder**       | "Jo kaam **turant next moment** mein karna hai"         |
+| `setImmediate()`     | 🔔 **Wall Clock Reminder**      | "Kaam event loop complete hone ke baad karna hai"       |
+| `setTimeout()`       | ⏰ **Alarm Clock** (delay wala) | "Itne time baad kaam karna hai (min. 0ms bhi ho sakta)" |
 
 ---
 
@@ -43,6 +43,7 @@ console.log("End");
 ```
 
 🧠 Output:
+
 ```
 Start
 End
@@ -55,21 +56,21 @@ End
 
 ### 🧠 Why This Order?
 
-| Function            | Kab execute hota hai?                                                                 |
-|---------------------|----------------------------------------------------------------------------------------|
-| `process.nextTick()` | 🧠 **Current phase ke turant baad** (microtasks queue)                                 |
-| `setImmediate()`     | 🕓 **Event loop ke current phase ke baad** (check phase)                               |
-| `setTimeout()`       | ⌛ **Delay ke baad** (timer complete hone ke baad event loop mein aata hai)           |
+| Function             | Kab execute hota hai?                                                       |
+| -------------------- | --------------------------------------------------------------------------- |
+| `process.nextTick()` | 🧠 **Current phase ke turant baad** (microtasks queue)                      |
+| `setImmediate()`     | 🕓 **Event loop ke current phase ke baad** (check phase)                    |
+| `setTimeout()`       | ⌛ **Delay ke baad** (timer complete hone ke baad event loop mein aata hai) |
 
 ---
 
 ## 🧾 Summary Table:
 
-| Function            | Execution Time                        | Best Used For                                |
-|---------------------|----------------------------------------|----------------------------------------------|
-| `process.nextTick()` | Sabse pehle (microtask queue)         | Urgent kaam jo next line ke turant baad chahiye |
-| `setImmediate()`     | Event loop ke baad                    | Jab kaam current I/O ke baad chahiye         |
-| `setTimeout()`       | Specific delay ke baad                | Timed tasks, retries, or timeouts            |
+| Function             | Execution Time                | Best Used For                                   |
+| -------------------- | ----------------------------- | ----------------------------------------------- |
+| `process.nextTick()` | Sabse pehle (microtask queue) | Urgent kaam jo next line ke turant baad chahiye |
+| `setImmediate()`     | Event loop ke baad            | Jab kaam current I/O ke baad chahiye            |
+| `setTimeout()`       | Specific delay ke baad        | Timed tasks, retries, or timeouts               |
 
 ---
 
@@ -81,11 +82,12 @@ End
 
 ### 🍽️ Chef Analogy Wrap-up:
 
-| Function            | Chef’s Task Style                                           |
-|---------------------|-------------------------------------------------------------|
-| `nextTick()`         | “Abhi kaam karna hai jaise hi haath khali hua”             |
-| `setImmediate()`     | “Current round ke baad kar lenge”                          |
-| `setTimeout()`       | “Alarm lagake yaad dila dena, thoda baad”                  |
+| Function         | Chef’s Task Style                              |
+| ---------------- | ---------------------------------------------- |
+| `nextTick()`     | “Abhi kaam karna hai jaise hi haath khali hua” |
+| `setImmediate()` | “Current round ke baad kar lenge”              |
+| `setTimeout()`   | “Alarm lagake yaad dila dena, thoda baad”      |
 
 ---
- 💥
+
+💥

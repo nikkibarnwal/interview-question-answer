@@ -51,6 +51,10 @@ exec("ls -l", (err, stdout, stderr) => {
     console.error("Error:", err.message);
     return;
   }
+  if (stderr) {
+    console.error("Stderr:", stderr);
+    return;
+  }
   console.log("Output:", stdout);
 });
 ```

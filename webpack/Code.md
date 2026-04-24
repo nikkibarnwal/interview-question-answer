@@ -1,12 +1,13 @@
 // 📁 Project Structure Example
 // my-react-app/
 // ├── src/
-// │   ├── index.js
-// │   └── App.jsx
+// │ ├── index.js
+// │ └── App.jsx
 // ├── dist/
 // ├── webpack.config.js
 // ├── .babelrc
 // └── package.json
+
 ```js
 // ✅ webpack.config.js
 const path = require('path');
@@ -84,17 +85,19 @@ body {
 }
 
 ```
+
 // ✅ index.html (to be placed in dist folder manually)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>React Webpack App</title>
-</head>
-<body>
-  <div id="root"></div>
-  <script src="bundle.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Webpack App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="bundle.js"></script>
+  </body>
 </html>
 ```
