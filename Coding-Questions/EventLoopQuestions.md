@@ -226,3 +226,119 @@ console.log("S");
 ```
 
 ---
+
+---
+
+# ⚡ **21.**
+
+```js
+console.log("S");
+
+process.nextTick(() => {
+  console.log("N1");
+
+  Promise.resolve().then(() => {
+    console.log("P1");
+  });
+
+  process.nextTick(() => {
+    console.log("N2");
+  });
+});
+
+Promise.resolve().then(() => {
+  console.log("P2");
+
+  process.nextTick(() => {
+    console.log("N3");
+  });
+
+  Promise.resolve().then(() => {
+    console.log("P3");
+  });
+});
+
+setTimeout(() => {
+  console.log("T1");
+}, 0);
+
+setImmediate(() => {
+  console.log("I1");
+});
+
+console.log("E");
+```
+
+---
+
+---
+
+# ⚡ **22.**
+
+```js
+console.log("S");
+
+Promise.resolve().then(() => {
+  console.log("P1");
+
+  process.nextTick(() => {
+    console.log("N1");
+
+    Promise.resolve().then(() => {
+      console.log("P2");
+    });
+  });
+
+  Promise.resolve().then(() => {
+    console.log("P3");
+
+    process.nextTick(() => {
+      console.log("N2");
+    });
+  });
+});
+
+process.nextTick(() => {
+  console.log("N3");
+
+  Promise.resolve().then(() => {
+    console.log("P4");
+  });
+});
+
+console.log("E");
+```
+
+---
+
+# ⚡ **22.**
+
+```js
+console.log("S");
+
+Promise.resolve().then(() => {
+  console.log("P1");
+
+  process.nextTick(() => {
+    console.log("N1");
+  });
+
+  Promise.resolve().then(() => {
+    console.log("P2");
+  });
+});
+
+process.nextTick(() => {
+  console.log("N2");
+
+  Promise.resolve().then(() => {
+    console.log("P3");
+  });
+});
+
+Promise.resolve().then(() => {
+  console.log("P4");
+});
+
+console.log("E");
+```
