@@ -1,3 +1,4 @@
+[View React implementation](https://github.com/nikkibarnwal/interview-question-answer/blob/main/react/DebounceCustomHook.md)
 # **🚀 Debouncing & Throttling – "Traffic Signal Concept"**  
 
 JavaScript में जब कोई **high-frequency event** (e.g., **scroll, resize, keypress, button click**) बार-बार fire होता है, तो यह performance को slow कर सकता है। इसे optimize करने के लिए **Debouncing और Throttling** का use किया जाता है।  
