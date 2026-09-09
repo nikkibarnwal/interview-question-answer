@@ -4,6 +4,12 @@
 🔹 **Definition:** जब एक function, दूसरे function के अंदर होता है और अंदर वाला function, बाहर वाले function के variables को याद रखता है, उसे **closure** कहते हैं।  
 🔹 **Trick to Remember:** मान लो एक **बेकरी (Bakery)** है, जहाँ केक बन रहे हैं। बेकरी का अंदरूनी हिस्सा (inner function) बाहर की दुकान (outer function) से सामान लेकर ही काम कर सकता है, लेकिन बाहर से कोई अंदर की चीज़ें नहीं ले सकता।  
 
+A closure occurs when a function retains access to variables from its lexical environment even after the outer function has finished execution.   
+
+A closure is formed when a function retains access to variables from its lexical environment after the outer function has completed.   
+Closures are useful for encapsulation, maintaining state, function factories, callbacks and techniques such as debouncing. The important point is that the inner function retains access to the lexical binding rather than simply receiving a copied value.   
+
+
 ```javascript
 function bakery() {
   let secretIngredient = "Chocolate";
@@ -15,7 +21,64 @@ function bakery() {
 
 const myCake = bakery();
 myCake(); // Making cake with Chocolate
+
+function createCounter() {
+    let count = 0;
+
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+const increment = createCounter();
+
+console.log(increment()); // 1
+console.log(increment()); // 2
+console.log(increment()); // 3
+
+//The closure retains access to the binding of count.
+
+//Important Senior level example
+function createCounter() {
+    let count = 0;
+
+    return {
+        increment() {
+            count++;
+        },
+
+        decrement() {
+            count--;
+        },
+
+        getCount() {
+            return count;
+        }
+    };
+}
+
+const counter = createCounter();
+
+counter.increment();
+counter.increment();
+counter.decrement();
+
+console.log(counter.getCount()); // 1
+console.log(counter.count); // undefined
 ```
+Why?   
+count exists inside createCounter().   
+It is not a property of the returned object.   
+But the returned methods have access to it through closures.   
+External code cannot directly do:   
+```js
+counter.count   // because no such property exists.
+```
+
+This provides a form of encapsulation/data privacy.  
+
+
 💡 **Key Point:** Inner function, outer function के variables को "याद" रखता है, even after outer function execution completes!
 
 ---
@@ -46,6 +109,7 @@ function hoistedFunction() {
 - **Block Scope** (🔒 Restricted Area – `{}` के अंदर वाले VIP members)  
 - **Function Scope** (🏠 Function के अंदर defined variables, बाहर available नहीं)  
 - **Lexical Scope** (📞 "Papa Connection" – Inner function को अपने ऊपर वाले functions के variables मिल जाते हैं)
+- **Global Scope** 
 
 ---
 
@@ -80,6 +144,7 @@ console.log(secret); // ❌ Error: secret is not defined
 ### ✅ **Lexical Scope – "Father-Son Concept"**  
 **Trick:** एक **बेटा (Inner Function)** अपने **पापा (Outer Function)** के पैसे (variables) use कर सकता है, लेकिन पापा बेटे से पैसे नहीं ले सकते!  
 ```javascript
+let globalValue = "global";
 function father() {
   let money = "₹1000";
 
@@ -91,8 +156,12 @@ function father() {
 }
 father();
 ```
-💡 **Key Point:** Inner function, outer function के variables को access कर सकता है, लेकिन उल्टा नहीं।
-JavaScript uses lexical scoping, meaning variable accessibility is determined by where the code is defined rather than where the function is called. If a variable isn't found in the current lexical environment, JavaScript searches outward through the scope chain until it finds the binding or reaches the global environment
+💡 **Key Point:** Inner function, outer function के variables को access कर सकता है, लेकिन उल्टा नहीं।   
+
+
+  JavaScript uses lexical scoping, meaning variable accessibility is determined by where the code is defined rather than where the function is called. If a variable isn't found in the current lexical environment, JavaScript searches outward through the scope chain until it finds the binding or reaches the global environment
+
+
 ---
 
 ### 🎯 **Final Summary – याद रखने का आसान तरीका**  
