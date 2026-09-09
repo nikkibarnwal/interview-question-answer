@@ -92,7 +92,7 @@ function father() {
 father();
 ```
 💡 **Key Point:** Inner function, outer function के variables को access कर सकता है, लेकिन उल्टा नहीं।
-
+JavaScript uses lexical scoping, meaning variable accessibility is determined by where the code is defined rather than where the function is called. If a variable isn't found in the current lexical environment, JavaScript searches outward through the scope chain until it finds the binding or reaches the global environment
 ---
 
 ### 🎯 **Final Summary – याद रखने का आसान तरीका**  
