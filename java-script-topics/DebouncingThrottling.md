@@ -52,6 +52,8 @@ optimizedSearch("Apple"); // ✅ Only "Apple" is searched after 1 sec!
 ✅ **Button Clicks** – बार-बार event trigger न हो  
 
 ---
+"I would use debounce for the search input because I don't want to trigger an API request for every keystroke. Each time the user types, I reset the timer, and the API is called only after the user stops typing for a defined interval, such as 300 milliseconds. This reduces unnecessary network requests and improves application performance."
+
 
 ## **🔹 2️⃣ Throttling – "Fix Interval पर ही Request होगी"**  
 
