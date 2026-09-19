@@ -1,8 +1,4 @@
----
-
 ## 🔥 Question 1 — Closure + `var` + Promise
-
-
 
 ```javascript 
 function test() {
@@ -28,9 +24,6 @@ You've correctly combined three concepts:
 
 
 > **"`test()` executes synchronously, and because `i` is declared using `var`, there is a single function-scoped `i` binding shared by all three callbacks. Each `Promise.resolve().then()` schedules its callback as a microtask. The `for` loop completes before the microtask queue is processed, so `i` has reached 3. Then the synchronous `console.log('Done')` executes. After the call stack is empty, the microtask queue is drained, and all three callbacks read the same `i`, which is 3. Therefore the output is `Done, 3, 3, 3`."**
-
-
-
 
 ---
 
