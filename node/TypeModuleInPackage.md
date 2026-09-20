@@ -133,4 +133,3 @@ Answer like this 👇
 
 ---
 
-Would you like me to show **a working Express app example** — one with `"type": "module"` and one without — so you can see the difference clearly in code?

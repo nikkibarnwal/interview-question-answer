@@ -230,5 +230,3 @@ emitter.emit("orderCreated");
 Used in microservices & async flows.
 
 ---
-
-Would you like me to make a **PDF version** of these Node.js MNC-level questions + short answers (with some coding tasks) so you can use it for quick revision before interviews?

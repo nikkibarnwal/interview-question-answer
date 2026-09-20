@@ -3,15 +3,16 @@
 👉 Answer:
 Cluster module lets you spawn multiple Node.js processes to utilize multi-core CPUs.
 Example:
-
+```js
 import cluster from "cluster";
 import os from "os";
 if (cluster.isPrimary) {
-os.cpus().forEach(() => cluster.fork());
+  os.cpus().forEach(() => cluster.fork());
 } else {
 // Start server here
 }
 
+```
 Each worker shares same port via load balancing.
 
 Sure 🔥 here’s **“Clusters in Node.js”** 👇
