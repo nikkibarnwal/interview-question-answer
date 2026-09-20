@@ -199,6 +199,29 @@ GET /memberships
 Render 50,000 rows ❌
 ```
 
+```js
+import { FixedSizeList } from "react-window";
+
+function UserList({ users }) {
+  const Row = ({ index, style }) => {
+    const user = users[index];
+
+    return <div style={style}>{user.name}</div>;
+  };
+
+  return (
+    <FixedSizeList
+      height={500}
+      width={400}
+      itemCount={users.length}
+      itemSize={50}
+    >
+      {Row}
+    </FixedSizeList>
+  );
+}
+```
+
 ---
 
 # ⭐ Senior-Level Point
@@ -247,7 +270,29 @@ Memoization
 
 > **"For a large React table, I would use server-side pagination or cursor pagination to control the amount of data fetched, and virtualization to render only the visible rows. I would also optimize row rendering and profile the application."**
 
----
+> **"Why don't we use key?"**
+
+Normal React:
+
+```js
+users.map((user) => <div key={user.id}>{user.name}</div>);
+```
+
+Because we are creating the list ourselves.
+
+With virtualization:
+
+```js
+<FixedSizeList>{Row}</FixedSizeList>
+```
+
+The virtualization library controls the list rendering/reconciliation.
+
+So:
+
+> **"The library manages the row lifecycle and keying according to its API."**
+
+## If the particular library/version provides an itemKey API, use a stable ID when appropriate.
 
 ## 🔥 Possible Follow-up
 
