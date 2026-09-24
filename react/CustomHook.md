@@ -117,6 +117,84 @@ export default function UserList() {
   );
 }
 ```
+### Production ready custom hook
+```js
+import { useState, useEffect } from 'react';
+
+const useFetch = (url, options = {}) => {
+  // 1. Initialize data as null to accommodate any API response type
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+// Stringify options to prevent infinite rerender loops from object references
+  const stringiFyOption = JSON.stringify(options);
+
+  useEffect(() => {
+    let isMounted = true;
+// 2. Instantiate the controller at the useEffect level so the cleanup function can see it
+    const controller = new AbortController();
+    const fetchUrl = async () => {
+      setLoading(true);
+      setError(null);
+
+     // Parse the options back into an object
+      const parsedOption = JSON.parse(stringiFyOption);
+      try {
+       // Merge the user's options with the AbortController signal
+        const response = await fetch(url, {
+          ...parsedOption,
+          signal: controller.signal
+        });
+        if (!response.ok) {
+          console.log(`HTTP error with status ${response.status}`)
+          throw new Error(`HTTP error with status ${response.status}`);
+        }
+        const resData = await response.json();
+// 3. Only update state if this specific request hasn't been aborted/superseded
+        if (isMounted)
+          setData(resData);
+      } catch (err) {
+        if (isMounted) {
+         // 4. Correct way to check for AbortController cancellation
+          if (err.message === 'AbortError') {
+            console.log('Fetch successfully aborted');
+          } else {
+            setError(err.message || 'An unexpected error occurred');
+          }
+        }
+      } finally {
+     // 5. Only turn off loading if the component is still actively tracking this request
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    }
+    fetchUrl();
+
+ // 6. Cleanup function properly calls abort and marks the mount status as false
+    return () => {
+      isMounted = false;
+      controller.abort();
+    }
+
+  }, [url, stringiFyOption]) // Dependency array tracks the stringified string
+
+
+  return { data, loading, error };
+}
+
+export default useFetch;
+```
+
+---
+
+### Why this is useful 
+## Prevents Race Conditions: 
+If a user clicks the "Next Post" button rapidly, older requests are aborted immediately.    
+Only the response from the most recently requested URL will update your state
+## Memory Leaks:    
+If the user navigates away from the page (unmounting the component) while a heavy data fetch is still running, the cleanup function triggers controller.abort(), stopping the request mid-flight.
 
 ---
 
@@ -126,6 +204,3 @@ export default function UserList() {
 - **With Custom Hook** → Ek recipe card (hook) bana lo, jahan chahiye wahan use kar lo.
 
 ---
-
-If you want, I can give you **5 useful custom hooks** that are mostly asked in interviews with examples.
-It will make you interview-ready for this topic.
