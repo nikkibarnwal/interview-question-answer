@@ -204,3 +204,73 @@ If the user navigates away from the page (unmounting the component) while a heav
 - **With Custom Hook** → Ek recipe card (hook) bana lo, jahan chahiye wahan use kar lo.
 
 ---
+## usePagination hook
+```js
+import { useMemo, useState } from "react";
+
+function usePagination(
+  totalItems,
+  itemsPerPage = 10
+) {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(
+    totalItems / itemsPerPage
+  );
+
+  const startIndex =
+    (currentPage - 1) * itemsPerPage;
+
+  const endIndex =
+    startIndex + itemsPerPage;
+
+  const nextPage = () => {
+    setCurrentPage((prev) =>
+      Math.min(prev + 1, totalPages)
+    );
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) =>
+      Math.max(prev - 1, 1)
+    );
+  };
+
+  const goToPage = (page) => {
+    setCurrentPage(
+      Math.min(
+        Math.max(page, 1),
+        totalPages
+      )
+    );
+  };
+
+  return {
+    currentPage,
+    totalPages,
+    startIndex,
+    endIndex,
+    nextPage,
+    prevPage,
+    goToPage
+  };
+}
+
+export default usePagination;
+
+//usage
+
+const {
+  currentPage,
+  totalPages,
+  startIndex,
+  endIndex,
+  nextPage,
+  prevPage
+} = usePagination(users.length, 10);
+
+const currentUsers =
+  users.slice(startIndex, endIndex);
+```
+
+
