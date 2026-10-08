@@ -2,11 +2,13 @@ import React from 'react';
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from './ProtectedRoutes';
+/* below components are just from demo purpose start */
 import About from "./About"
 import Contact from "./Contact"
 import Dashboard from "./Dashboard"
 import Counter from "./Counter"
 import Login from "./Login"
+/* below components are just from demo purpose end */
 
 function App() {
 
