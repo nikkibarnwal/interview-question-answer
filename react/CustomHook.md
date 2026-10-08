@@ -44,19 +44,38 @@ function useFetch(url, options = {}) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(url, options)
-      .then((res) => {
-        if (!res.ok) throw new Error("Network error");
-        return res.json();
-      })
-      .then((data) => {
-        setData(data);
-        setError(null);
-      })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+   useEffect(() => {
+    const controller = new AbortController();
+    async function fetchData() {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(url, {
+          ...options,
+          signal: controller.signal,
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        if (!controller.signal.aborted) {
+          setData(result);
+        }
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          setError(err.message);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
+      }
+    }
+
+    fetchData();
+    return () => {
+      controller.abort();
+    };
   }, [url]);
 
   return { data, loading, error };
