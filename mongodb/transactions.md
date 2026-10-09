@@ -14,7 +14,11 @@ Mongoose और Express.js में Transactions का इस्तेमा�
 ------------------------------
 ## 💻 Express + Mongoose Transaction Code Example
 
-const express = require('express');const mongoose = require('mongoose');const Order = require('./models/Order');     // Your Order Modelconst Product = require('./models/Product'); // Your Product Model
+```js
+const express = require('express');
+const mongoose = require('mongoose');
+const Order = require('./models/Order'); // Your Order Model
+const Product = require('./models/Product'); // Your Product Model
 const app = express();
 app.use(express.json());
 
@@ -82,6 +86,7 @@ app.post('/api/place-order', async (req, res) => {
 mongoose.connect('mongodb://localhost:27017/my_shop?replicaSet=rs0') // Replica set connection local test के लिए
   .then(() => app.listen(3000, () => console.log('Server running on port 3000')));
 
+```
 ------------------------------
 ## 🔑 3 Golden Rules for Mongoose Transactions
 
