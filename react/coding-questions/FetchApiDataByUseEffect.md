@@ -13,7 +13,7 @@ Interview question: Create a React component that fetches a list of users from a
 
 ### Solution
 
-```
+```js
 
 import { useState, useEffect } from "react"
 
