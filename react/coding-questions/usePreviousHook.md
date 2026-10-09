@@ -7,10 +7,31 @@ Requirements
 - Display both the current and previous count.
 
  */
+
+
+Let's understand `usePrevious` step by step, in simple Hinglish, with an interview-ready explanation.
+
+## 1. What is `usePrevious`?
+
+React doesn't provide a built-in `usePrevious` hook. We create a custom hook to remember the previous value of a state or prop.
+
+For example:
+
+| Render          | Current count | Previous count |
+| --------------- | ------------- | -------------- |
+| Initial         | 0             | `undefined`    |
+| After 1st click | 1             | 0              |
+| After 2nd click | 2             | 1              |
+| After 3rd click | 3             | 2              |
+
+The goal is to show the current value and the value from the previous render.
+
+## 2. Implementation
+
  ```js
 import { useRef, useEffect } from "react"
 export const usePrevious = (value) => {
-  const prevRef = useRef(null);
+  const prevRef = useRef();
 
   useEffect(() => {
     prevRef.current = value;
@@ -40,59 +61,6 @@ function Counter() {
 }
 
 export default Counter;
-```
-
-Let's understand `usePrevious` step by step, in simple Hinglish, with an interview-ready explanation.
-
-## 1. What is `usePrevious`?
-
-React doesn't provide a built-in `usePrevious` hook. We create a custom hook to remember the previous value of a state or prop.
-
-For example:
-
-| Render          | Current count | Previous count |
-| --------------- | ------------- | -------------- |
-| Initial         | 0             | `undefined`    |
-| After 1st click | 1             | 0              |
-| After 2nd click | 2             | 1              |
-| After 3rd click | 3             | 2              |
-
-The goal is to show the current value and the value from the previous render.
-
-## 2. Implementation
-
-```
-
-import { useState, useRef, useEffect } from "react";
-
-function usePrevious(value) {
-  const ref = useRef();
-
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-
-  return ref.current;
-}
-
-function Counter() {
-  const [count, setCount] = useState(0);
-  const previousCount = usePrevious(count);
-
-  return (
-    <div>
-      <h2>Current Count: {count}</h2>
-      <h3>Previous Count: {previousCount ?? "None"}</h3>
-
-      <button onClick={() => setCount(prev => prev + 1)}>
-        Increment
-      </button>
-    </div>
-  );
-}
-
-export default Counter;
-
 ```
 
 ## 3. How does it work?
